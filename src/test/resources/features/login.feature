@@ -1,0 +1,35 @@
+# language: pt
+
+  @login
+  Funcionalidade: Login
+    Eu como usuário do sistema
+    Quero fazer login
+    Para fazer uma compra no site
+
+    Contexto: Acessar tela de login
+      Dado que estou na tela de login
+
+
+
+    @login-sucesso
+    Cenário: Login com sucesso
+      Quando preencho login "rosangelanascimento@gmail.com" e senha "123458"
+      E clico em Login
+      Então vejo mensagem de login com sucesso
+
+      @login-invalido
+      Esquema do Cenário: Validar : <name>
+        Quando preencho login "<user>" e senha "<password>"
+        E clico em Login
+        Então vejo mensagem "<message>" de campo não preenchido
+
+        Exemplos:
+        | user                          | password   | message          |  name              |
+        | qualquercoisa                 | 123459     | E-mail inválido. |  E-mail inválido   |
+        |                               | 123459     | E-mail inválido. |  E-mail vazio      |
+        | rosangelanascimento@gmail.com | 0000       | Senha inválida.  |  Senha inválida    |
+        | rosangelanascimento@gmail.com |            | Senha inválida.  |  Senha vazia       |
+
+
+
+
