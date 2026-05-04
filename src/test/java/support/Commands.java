@@ -37,7 +37,7 @@ public class Commands {
         System.out.println("###################");
         try {
             System.out.println("Vai preencher o campo: " + element);
-            waitElementBeClickable(element, 10000);
+            waitElementBeClickable(element, 10);
             getDriver().findElement(element).sendKeys(value);
             System.out.println("Clicou no elemento: " + element);
         } catch (Exception error) {
@@ -52,7 +52,7 @@ public class Commands {
         System.out.println("###########################");
 
             System.out.println("Vai validar mensagem:" + expectedMessage);
-            waitElementBeVisible(By.id("swal2-title"), 10000);
+            waitElementBeVisible(element, 10);
             actualMessage = getDriver().findElement(element).getText();
             // quanto não der certo , vai quebrar o teste!!!
             Assert.assertEquals("Error ao validar mensagens!", expectedMessage, actualMessage);

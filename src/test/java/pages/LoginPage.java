@@ -38,11 +38,11 @@ public class LoginPage extends RunCucumber {
     }
 
     public void clicarLogin(){
-        clickElement(botaoAcessarLogin);
+        clickElement(By.id("btnLogin"));
     }
 
     public void verificaLoginSucesso(){
-        checkMessage (By.id("swal2-title"), "Login relaizadox");
+        checkMessage (By.id("swal2-title"), "Login realizado");
 
     }
 
