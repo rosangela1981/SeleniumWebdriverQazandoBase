@@ -25,8 +25,12 @@ public class RunBase {
         }
 
         switch (browser) {
+            case "chrome":
+                // Para você rodar no seu PC (com janela aberta)
+                driver = new ChromeDriver();
+                break;
             case "chrome-ci":
-                // Configuração específica para rodar no GitHub Actions (CI)
+                // Para o GitHub Actions (invisível e estável)
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--headless");
                 options.addArguments("--no-sandbox");
