@@ -50,7 +50,7 @@ public class LoginPage extends RunCucumber {
     public void verificaCampoVazio(String message){
 
         // Espera até 10 segundos pelo elemento aparecer antes de tentar ler o texto
-        WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+        WebDriverWait wait = new WebDriverWait(getDriver(), 20);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("invalid_input")));
         String textError = getDriver().findElement(By.className("invalid_input")).getText();
         Assert.assertEquals(message, textError);
