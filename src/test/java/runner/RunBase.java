@@ -14,7 +14,7 @@ public class RunBase {
     public static WebDriver getDriver() {
         if (driver == null) {
             String browser = System.getProperty("browser", "chrome");
-            return getDriver("browser");
+            return getDriver(browser);
         }
         return driver;
     }
