@@ -2,6 +2,7 @@ package runner;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -23,8 +24,13 @@ public class RunBase {
         }
 
         switch (browser) {
-            case "chrome":
-                driver = new ChromeDriver();
+            case "chrome-ci":
+                // Configuração específica para rodar no GitHub Actions (CI)
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+                driver = new ChromeDriver(options);
                 break;
             case "firefox":
                 driver = new FirefoxDriver();

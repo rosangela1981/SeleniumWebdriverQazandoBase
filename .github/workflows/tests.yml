@@ -10,18 +10,18 @@ jobs:
 
     steps:
       - name: Clonar o projeto
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
 
       - name: Instalar Java 11
-        uses: actions/checkout@v6
+        uses: actions/setup-java@v4
         with:
             java-version: '11'
-            distribution: 'adopt'
+            distribution: 'temurin'
             cache: 'maven'
 
       - name: Instalar Chrome
-        uses: browser-actions/setup-chrome@v2
+        uses: browser-actions/setup-chrome@v3
 
 
 
