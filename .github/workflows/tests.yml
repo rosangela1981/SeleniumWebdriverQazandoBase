@@ -21,7 +21,7 @@ jobs:
           cache: 'maven'
 
       - name: Instalar Chrome
-        uses: browser-actions/setup-chrome@v3
+        uses: browser-actions/setup-chrome@v2
 
 
 
