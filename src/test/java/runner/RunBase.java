@@ -13,6 +13,7 @@ public class RunBase {
 
     public static WebDriver getDriver() {
         if (driver == null) {
+            String browser = System.getProperty("browser", "chrome");
             return getDriver("chrome");
         }
         return driver;
