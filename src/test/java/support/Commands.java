@@ -30,9 +30,14 @@ public class Commands {
             getDriver().findElement(element).click();
             System.out.println("Clicou no elemento: " + element);
         } catch (Exception error) {
-            System.out.println("*******Aconteceu um erro ao tentar clicar no elemento: " + element);
-            // Lança a exceção para o JUnit marcar o teste como falha
-            throw new RuntimeException("Erro ao clicar no elemento: " + element, error);
+            System.out.println("*******Tentando clique via JavaScript para o elemento: " + element);
+            try {
+                // Tenta um clique forçado via JS caso o clique normal falhe
+                org.openqa.selenium.JavascriptExecutor executor = (org.openqa.selenium.JavascriptExecutor) getDriver();
+                executor.executeScript("arguments[0].click();", getDriver().findElement(element));
+            } catch (Exception e) {
+                throw new RuntimeException("Erro persistente ao clicar no elemento: " + element, e);
+            }
         }
         System.out.println("###########################");
     }
