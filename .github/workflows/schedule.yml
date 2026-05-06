@@ -29,7 +29,7 @@ jobs:
 
 
       - name: Run Test
-        run: mvn test -Dtest=RunCucumber  -Dbrowser=chrome-ci
+        run: mvn test -Dtest=RunCucumber  -Dbrowser=chrome-ci -Dcucumber.options="--tags ~@Ignore"
 
       - name: Gerar relatório
         if: always()
