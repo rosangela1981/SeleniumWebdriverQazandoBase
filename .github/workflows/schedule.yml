@@ -2,8 +2,8 @@ name: Schedule Tests - PR
 
 on:
   schedule:
-    - cron: '30 15 * * 1-5'
-      workflow_dispatch: # Permite rodar manualmente na aba Actions
+    - cron: '40 15 * * 1-5'
+  workflow_dispatch: # Permite rodar manualmente na aba Actions
 
 jobs:
   RunTest:
