@@ -30,7 +30,7 @@ jobs:
 
 
       - name: Run Test
-        run: mvn test -Dtest=RunCucumber  -Dbrowser=chrome-ci
+        run: mvn test -Dtest=RunCucumber  -Dbrowser=chrome-ci -Dcucumber.options="--tags @login-sucesso"
 
       - name: Gerar relatório
         if: always()
@@ -43,6 +43,28 @@ jobs:
           name: report-tests
           path: '**/formated-report/'
 
+
+      - name: Enviar notificação Slack - Sucesso
+        if: ${{ success() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_COLOR: 'good' # Define explicitamente como verde
+          SLACK_ICON: https://cdn-icons-png.flaticon.com/512/148/148767.png?size=48
+          SLACK_MESSAGE: 'Sucesso na execução de teste do PR :white_check_mark:'
+          SLACK_TITLE: 'Sucesso na execução de teste do PR  :white_check_mark: '
+          SLACK_USERNAME: SUCESSO
+
+      - name: Enviar notificação Slack - Falha
+        if: ${{ failure() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_COLOR: 'danger' # Define explicitamente como vermelho
+          SLACK_ICON: https://cdn-icons-png.flaticon.com/512/148/148766.png # Opcional: ícone de erro
+          SLACK_MESSAGE: 'Falha na execução de teste do PR :fire:'
+          SLACK_TITLE: 'Falha na execução de teste do PR :fire:'
+          SLACK_USERNAME: FALHA
 
 
 
