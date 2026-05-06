@@ -90,7 +90,9 @@
                     --add-opens java.base/java.text=ALL-UNNAMED
                     --add-opens java.desktop/java.awt.font=ALL-UNNAMED
                     </argLine>
+                    <testFailureIgnore>false</testFailureIgnore>
                 </configuration>
+
             </plugin>
         </plugins>
     </build>
