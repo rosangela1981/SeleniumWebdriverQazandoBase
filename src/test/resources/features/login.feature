@@ -13,7 +13,7 @@
 
     @login-sucesso
     Cenário: Login com sucesso
-#      Quando preencho login "rosangelanascimento@gmail.com" e senha "123458"
+      Quando preencho login "rosangelanascimento@gmail.com" e senha "123458"
       E clico em Login
       Então vejo mensagem de login com sucesso
 
