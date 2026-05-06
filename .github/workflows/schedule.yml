@@ -2,7 +2,7 @@ name: Schedule Tests - PR
 
 on:
   schedule:
-    - cron: '08 15 * * 1-5'
+    - cron: '15 15 * * 1-5'
 
 jobs:
   RunTest:
